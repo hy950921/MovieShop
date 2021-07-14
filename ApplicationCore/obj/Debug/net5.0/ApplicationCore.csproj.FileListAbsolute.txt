@@ -9,4 +9,3 @@ C:\Users\hy199\source\repos\Antra\MovieShop\ApplicationCore\obj\Debug\net5.0\App
 C:\Users\hy199\source\repos\Antra\MovieShop\ApplicationCore\obj\Debug\net5.0\ApplicationCore.dll
 C:\Users\hy199\source\repos\Antra\MovieShop\ApplicationCore\obj\Debug\net5.0\ref\ApplicationCore.dll
 C:\Users\hy199\source\repos\Antra\MovieShop\ApplicationCore\obj\Debug\net5.0\ApplicationCore.pdb
-C:\Users\hy199\source\repos\Antra\MovieShop\ApplicationCore\obj\Debug\net5.0\ApplicationCore.csproj.AssemblyReference.cache

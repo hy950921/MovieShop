@@ -20,7 +20,7 @@ namespace ApplicationCore.Entities
         public string Name { get; set; }
 
         //navigation
-        public MovieGenre MovieGenre { get; set; }
+        public ICollection<MovieGenre>  MovieGenres { get; set; }
     }
 
     // to modify entity/table 2 options: dataAnnotation, fluent API

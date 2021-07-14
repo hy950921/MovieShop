@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApplicationCore.Entities
 {
-    public class Cast
+    public class Crew
     {
         public int Id { get; set; }
         public string Name { get; set; }
@@ -14,6 +14,9 @@ namespace ApplicationCore.Entities
         public string TmdbUrl { get; set; }
         public string ProfilePath { get; set; }
 
-        public ICollection<MovieCast> MovieCasts { get; set; }
+        // navigation
+        public ICollection<Movie> Movies { get; set; }
+
+
     }
 }

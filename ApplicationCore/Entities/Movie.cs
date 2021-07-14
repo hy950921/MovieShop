@@ -31,6 +31,8 @@ namespace ApplicationCore.Entities
 
         // navigation
         public ICollection<Trailer> Trailers { get; set; }
-        public MovieGenre MovieGenre { get; set; }
+        public ICollection<MovieGenre> MovieGenres { get; set; }
+        public ICollection<MovieCast> MovieCasts { get; set; }
+        public ICollection<MovieCrew> MovieCrews { get; set; }
     }
 }
