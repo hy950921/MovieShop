@@ -33,6 +33,11 @@ namespace Infrastructure.Data
             modelBuilder.Entity<MovieCast>(ConfigureMovieCast);
             modelBuilder.Entity<MovieCrew>(ConfigureMovieCrew);
             modelBuilder.Entity<Crew>(ConfigureCrew);
+            modelBuilder.Entity<UserRole>(ConfigureUserRole);
+            modelBuilder.Entity<Review>(ConfigureReview);
+            modelBuilder.Entity<Purchase>(ConfigurePurchase);
+            modelBuilder.Entity<Role>(ConfigureRole);
+            modelBuilder.Entity<User>(ConfigureUser);
         }
 
         private void ConfigureMovie(EntityTypeBuilder<Movie> builder)
@@ -100,6 +105,41 @@ namespace Infrastructure.Data
             builder.Property(c => c.Gender);
             builder.Property(c => c.TmdbUrl);
             builder.Property(c => c.ProfilePath).HasMaxLength(2084);
+        }
+
+        private void ConfigureUserRole(EntityTypeBuilder<UserRole> builder)
+        {
+            builder.ToTable("UserRole");
+            builder.HasKey(ur => new { ur.UserId, ur.RoleId });
+        }
+
+        private void ConfigureReview(EntityTypeBuilder<Review> builder)
+        {
+            builder.ToTable("Review");
+            builder.HasKey(r => new { r.MovieId, r.UserId });
+            builder.Property(r => r.Rating).HasColumnType("decimal(3, 2)");
+        }
+
+        private void ConfigurePurchase(EntityTypeBuilder<Purchase> builder)
+        {
+            builder.ToTable("Purchase");
+            builder.Property(p => p.TotalPrice).HasColumnType("decimal(18,2)");
+        }
+
+        private void ConfigureRole(EntityTypeBuilder<Role> builder)
+        {
+            builder.ToTable("Role");
+            builder.Property(r => r.Name).HasMaxLength(20);
+        }
+        private void ConfigureUser(EntityTypeBuilder<User> builder)
+        {
+            builder.ToTable("User");
+            builder.Property(u => u.FirstName).HasMaxLength(128);
+            builder.Property(u => u.LastName).HasMaxLength(128);
+            builder.Property(u => u.Email).HasMaxLength(256);
+            builder.Property(u => u.HashedPassword).HasMaxLength(1024);
+            builder.Property(u => u.Salt).HasMaxLength(1024);
+            builder.Property(u => u.PhoneNumber).HasMaxLength(16);
         }
     }
 }

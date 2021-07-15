@@ -10,6 +10,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Infrastructure.Data;
+using ApplicationCore.RepositoryInterfaces;
+using Infrastructure.Repositories;
+using ApplicationCore.ServiceInterfaces;
+using Infrastructure.Services;
 
 namespace MovieShopMVC
 {
@@ -26,11 +30,15 @@ namespace MovieShopMVC
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddScoped<IMovieService, MovieService>();
+            services.AddScoped<IMovieRepository, MovieRepository>();
             services.AddDbContext<MovieShopDbContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("MovieShopDbConnection"));
 
             });
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Top 30 Revenue Movies";
 }
 
 @model List<ApplicationCore.Models.MovieCardResponseModel>
@@ -9,6 +9,7 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 
+<h2>@ViewData["Title"]</h2>
 
 @foreach (var movie in Model)
 {
