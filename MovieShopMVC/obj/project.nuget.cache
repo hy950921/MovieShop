@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "VE+eaA53HgcVnIKDpD9QVL1fXafh4rpMbs6pchjkrSzyRXxw7W9ByyE7S9ntOlHzDlz6HW+uo22QLD+RdxKOtw==",
+  "dgSpecHash": "E5+0gBBbXOAWDwU0Srf1daP81I6Byt9Ezjf+WYU3Sk5IvlRBq68JtQ5ZGfd+fGcJl2Np5HANmgAydtIPtFNoPQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\hy199\\source\\repos\\Antra\\MovieShop\\MovieShopMVC\\MovieShopMVC.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hy199\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\hy199\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.8\\microsoft.aspnetcore.cryptography.internal.5.0.8.nupkg.sha512",
+    "C:\\Users\\hy199\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\5.0.8\\microsoft.aspnetcore.cryptography.keyderivation.5.0.8.nupkg.sha512",
     "C:\\Users\\hy199\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\hy199\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\hy199\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",
