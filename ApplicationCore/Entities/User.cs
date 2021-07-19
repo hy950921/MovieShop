@@ -24,7 +24,7 @@ namespace ApplicationCore.Entities
         public int? AccessFailedCount { get; set; }
 
         //navigation
-        public UserRole UserRoles { get; set; }
+        public ICollection<UserRole> UserRoles { get; set; }
         public ICollection<Favorite> Favorites { get; set; }
 
         public ICollection<Review> Reviews { get; set; }

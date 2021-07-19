@@ -18,21 +18,51 @@ namespace Infrastructure.Services
             _movieRepository = movieRepository;
         }
 
-        public async Task<List<MovieCardResponseModel>> GetTopBudgetMovies()
+        public async Task<MovieDetailsResponseModel> GetMovieDetails(int id)
         {
-            var movies = await _movieRepository.GetHighest10BudgetMovies();
-            List<MovieCardResponseModel> res = new List<MovieCardResponseModel>();
-            foreach (var m in movies)
+            var movie = await _movieRepository.GetByIdAsync(id);
+
+            var movieDetails = new MovieDetailsResponseModel()
             {
-                res.Add(new MovieCardResponseModel
+                Id = movie.Id,
+                Title = movie.Title,
+                Budget = movie.Budget.GetValueOrDefault(),
+                PosterUrl = movie.PosterUrl,
+                BackdropUrl = movie.BackdropUrl,
+                Tagline = movie.Tagline,
+                RunTime = movie.RunTime,
+                ReleaseDate = movie.ReleaseDate,
+                Rating = movie.Rating,
+                Overview = movie.Overview
+            };
+
+            movieDetails.Casts = new List<CastResponseModel>();
+
+            foreach (var cast in movie.MovieCasts)
+            {
+                movieDetails.Casts.Add(new CastResponseModel
                 {
-                    Id = m.Id,
-                    Budget = m.Budget.GetValueOrDefault(),
-                    Title = m.Title,
-                    PosterUrl = m.PosterUrl
+                    Id = cast.CastId,
+                    Name = cast.Cast.Name,
+                    Character = cast.Character,
+                    ProfilePath = cast.Cast.ProfilePath
                 });
             }
-            return res;
+
+            movieDetails.Genres = new List<GenreModel>();
+            foreach (var genre in movie.MovieGenres)
+            {
+                if(genre != null )
+                {
+                    movieDetails.Genres.Add(
+                        new GenreModel
+                        {
+                            Id = genre.Genre.Id,
+                            Name = genre.Genre.Name
+                        });
+                }
+            }
+            return movieDetails;
         }
 
         public async Task<List<MovieCardResponseModel>> GetTopRevenueMovies()

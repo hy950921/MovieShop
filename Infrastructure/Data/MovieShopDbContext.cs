@@ -21,6 +21,7 @@ namespace Infrastructure.Data
         public DbSet<Movie> Movies { get; set; }
 
         public DbSet<Trailer> Trailers { get; set; }
+        public DbSet<Review> Reviews { get; set; }
 
         // to use fluent API, we need to override a method onModelCreating
 

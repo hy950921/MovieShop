@@ -31,11 +31,6 @@ namespace MovieShopMVC.Controllers
             return View();
         }
 
-        public async Task<IActionResult> TopBudgetMovies()
-        {
-            var movies = await _movieService.GetTopBudgetMovies();
-            return View(movies);
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

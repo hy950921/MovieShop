@@ -9,5 +9,7 @@ namespace ApplicationCore.RepositoryInterfaces
 {
     public interface IGenreRepository : IAsyncRepository<Genre>
     {
+        Task<List<Genre>> GetAllGenreEntities();
+
     }
 }

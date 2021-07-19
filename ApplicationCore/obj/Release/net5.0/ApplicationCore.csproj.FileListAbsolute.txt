@@ -1,0 +1,12 @@
+C:\Users\hy199\source\repos\Antra\MovieShop\ApplicationCore\bin\Release\net5.0\ApplicationCore.deps.json
+C:\Users\hy199\source\repos\Antra\MovieShop\ApplicationCore\bin\Release\net5.0\ApplicationCore.dll
+C:\Users\hy199\source\repos\Antra\MovieShop\ApplicationCore\bin\Release\net5.0\ref\ApplicationCore.dll
+C:\Users\hy199\source\repos\Antra\MovieShop\ApplicationCore\bin\Release\net5.0\ApplicationCore.pdb
+C:\Users\hy199\source\repos\Antra\MovieShop\ApplicationCore\obj\Release\net5.0\ApplicationCore.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\hy199\source\repos\Antra\MovieShop\ApplicationCore\obj\Release\net5.0\ApplicationCore.AssemblyInfoInputs.cache
+C:\Users\hy199\source\repos\Antra\MovieShop\ApplicationCore\obj\Release\net5.0\ApplicationCore.AssemblyInfo.cs
+C:\Users\hy199\source\repos\Antra\MovieShop\ApplicationCore\obj\Release\net5.0\ApplicationCore.csproj.CoreCompileInputs.cache
+C:\Users\hy199\source\repos\Antra\MovieShop\ApplicationCore\obj\Release\net5.0\ApplicationCore.dll
+C:\Users\hy199\source\repos\Antra\MovieShop\ApplicationCore\obj\Release\net5.0\ref\ApplicationCore.dll
+C:\Users\hy199\source\repos\Antra\MovieShop\ApplicationCore\obj\Release\net5.0\ApplicationCore.pdb
+C:\Users\hy199\source\repos\Antra\MovieShop\ApplicationCore\obj\Release\net5.0\ApplicationCore.csproj.AssemblyReference.cache

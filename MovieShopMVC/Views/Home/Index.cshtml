@@ -1,19 +1,21 @@
 ﻿@{
-    ViewData["Title"] = "Top 30 Revenue Movies";
+    ViewData["Title"] = "Top 30 Revenue";
 }
 
 @model List<ApplicationCore.Models.MovieCardResponseModel>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
 
 <h2>@ViewData["Title"]</h2>
 
-@foreach (var movie in Model)
-{
-    <div>
-        <p>@movie.Id, <b>@movie.Title</b>, @movie.Budget</p>
+<div class="rounded">
+    <div class="container-fluid bg-light">
+        <div class="row">
+            @foreach (var movie in Model)
+            {
+                <div class="col-2">
+                    <partial name="_MovieCard" model="movie" />
+                </div>
+            }
+        </div>
     </div>
-}
+</div>
