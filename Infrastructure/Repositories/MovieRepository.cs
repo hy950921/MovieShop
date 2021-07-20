@@ -29,10 +29,12 @@ namespace Infrastructure.Repositories
             var movie = await _dbContext.Movies.Include(m => m.MovieCasts).ThenInclude(m => m.Cast)
                         .Include(m => m.MovieGenres).ThenInclude(m => m.Genre).FirstOrDefaultAsync(m => m.Id == id);
 
-            if (movie == null)
-            {
-                throw new Exception($"no movie found with {id}");
-            }
+            //if (movie == null)
+            //{
+            //    throw new Exception($"no movie found with {id}");
+            //}
+
+            
 
             var movieRating = await _dbContext.Reviews.Where(m => m.MovieId == id).AverageAsync(r => r == null ? 0 : r.Rating);
 
@@ -43,5 +45,9 @@ namespace Infrastructure.Repositories
             return movie;
         }
 
+        public override async Task<IEnumerable<Movie>> ListAllAsync()
+        {
+            return await _dbContext.Movies.Take(20).ToListAsync();
+        }
     }
 }

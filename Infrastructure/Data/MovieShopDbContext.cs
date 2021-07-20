@@ -19,7 +19,7 @@ namespace Infrastructure.Data
 
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Movie> Movies { get; set; }
-
+        public DbSet<Cast> Casts { get; set; }
         public DbSet<Trailer> Trailers { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<User> Users { get; set; }

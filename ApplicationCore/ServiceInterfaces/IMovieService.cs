@@ -12,5 +12,8 @@ namespace ApplicationCore.ServiceInterfaces
         Task<List<MovieCardResponseModel>> GetTopRevenueMovies();   // response method to get top 30 movie DTO => map properties between entity and model
 
         Task<MovieDetailsResponseModel> GetMovieDetails(int id);    // response method to get details of a single movie model
+
+
+        Task<List<MovieCardResponseModel>> GetAllMovies();
     }
 }

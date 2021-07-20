@@ -9,5 +9,8 @@ namespace ApplicationCore.RepositoryInterfaces
 {
     public interface ICastRepository : IAsyncRepository<Cast>
     {
+        Task<List<Cast>> GetAllCastsAsync();
+
+        Task<Cast> GetCastByIdAsync(int id);
     }
 }

@@ -18,6 +18,27 @@ namespace Infrastructure.Services
             _movieRepository = movieRepository;
         }
 
+        public async Task<List<MovieCardResponseModel>> GetAllMovies()
+        {
+            var movies = await _movieRepository.ListAllAsync();
+
+            var moviesResponse = new List<MovieCardResponseModel>();
+
+            foreach (var movie in movies)
+            {
+                moviesResponse.Add(new MovieCardResponseModel
+                {
+
+                    Id = movie.Id,
+                    Title = movie.Title,
+                    Budget = movie.Budget.GetValueOrDefault(),
+                    PosterUrl = movie.PosterUrl,
+                    
+                });
+            }
+            return moviesResponse;
+        }
+
         public async Task<MovieDetailsResponseModel> GetMovieDetails(int id)
         {
             var movie = await _movieRepository.GetByIdAsync(id);

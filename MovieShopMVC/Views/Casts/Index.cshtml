@@ -1,0 +1,9 @@
+﻿@model List<ApplicationCore.Models.CastResponseModel>;
+
+
+@foreach (var cast in Model)
+{
+    <div>
+        @cast.Id, @cast.Name, @cast.TmdbUrl
+    </div>
+}
