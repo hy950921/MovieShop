@@ -76,10 +76,10 @@ C:\Users\hy199\source\repos\Antra\MovieShop\MovieShopMVC\obj\Release\net5.0\Movi
 C:\Users\hy199\source\repos\Antra\MovieShop\MovieShopMVC\obj\Release\net5.0\ref\MovieShopMVC.dll
 C:\Users\hy199\source\repos\Antra\MovieShop\MovieShopMVC\obj\Release\net5.0\MovieShopMVC.pdb
 C:\Users\hy199\source\repos\Antra\MovieShop\MovieShopMVC\obj\Release\net5.0\MovieShopMVC.genruntimeconfig.cache
-C:\Users\hy199\source\repos\Antra\MovieShop\MovieShopMVC\obj\Release\net5.0\Razor\Views\Shared\_GenresView.cshtml.g.cs
 C:\Users\hy199\source\repos\Antra\MovieShop\MovieShopMVC\bin\Release\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\hy199\source\repos\Antra\MovieShop\MovieShopMVC\bin\Release\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\hy199\source\repos\Antra\MovieShop\MovieShopMVC\obj\Release\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\hy199\source\repos\Antra\MovieShop\MovieShopMVC\obj\Release\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\hy199\source\repos\Antra\MovieShop\MovieShopMVC\obj\Release\net5.0\Razor\Views\Shared\_GenreView.cshtml.g.cs
 C:\Users\hy199\source\repos\Antra\MovieShop\MovieShopMVC\obj\Release\net5.0\Razor\Views\Shared\_Casts.cshtml.g.cs
+C:\Users\hy199\source\repos\Antra\MovieShop\MovieShopMVC\obj\Release\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs

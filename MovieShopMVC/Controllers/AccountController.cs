@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using ApplicationCore.Models;
 using ApplicationCore.ServiceInterfaces;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -72,6 +75,31 @@ namespace MovieShopMVC.Controllers
                 return View();
             }
 
+
+            // create cookie claims
+            var claims = new List<Claim>
+            {
+                 new Claim(ClaimTypes.Email, user.Email),
+                 new Claim(ClaimTypes.GivenName, user.FirstName),
+                 new Claim(ClaimTypes.Surname, user.LastName),
+                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString())
+            };
+
+            // identity object
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+
+            // HttpContext
+            // URL, Http method type, form body, browser, Ip address, 
+
+
+            // create the cookie
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
+
+            return LocalRedirect("~/");
+
+
+
             // correct pasword
             // display, FirstName, LastName, Email
             // Button/Link Logout
@@ -79,5 +107,11 @@ namespace MovieShopMVC.Controllers
             return View();
         }
 
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Login");
+        }
     }
 }
