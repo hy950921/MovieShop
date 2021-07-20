@@ -16,10 +16,12 @@ namespace MovieShopMVC.Controllers
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
+        private readonly ICurrentUser _currentUser;
 
-        public AccountController(IUserService userService)
+        public AccountController(IUserService userService, ICurrentUser currentUser)
         {
             _userService = userService;
+            _currentUser = currentUser;
         }
 
         // method for registration
@@ -112,6 +114,14 @@ namespace MovieShopMVC.Controllers
         {
             await HttpContext.SignOutAsync();
             return RedirectToAction("Login");
+        }
+
+        [HttpGet]
+        public IActionResult Profile()
+        {
+            var userId = _currentUser.UserId;
+            var userProfileResponse = _userService.GetUserDetails(userId).GetAwaiter().GetResult();
+            return View(userProfileResponse);
         }
     }
 }

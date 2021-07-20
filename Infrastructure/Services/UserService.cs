@@ -116,5 +116,20 @@ namespace Infrastructure.Services
                                                                     numBytesRequested: 256 / 8));
             return hashed;
         }
+
+
+        public async Task<UserLoginResponseModel> GetUserDetails(int id)
+        {
+            var user = await _userRepository.GetByIdAsync(id);
+            var userProfileResponse = new UserLoginResponseModel
+            {
+                Id = user.Id,
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                DateOfBirth = user.DateOfBirth,
+            };
+            return userProfileResponse;
+        }
     }
 }
