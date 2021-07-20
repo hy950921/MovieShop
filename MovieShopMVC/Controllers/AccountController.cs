@@ -41,14 +41,16 @@ namespace MovieShopMVC.Controllers
                 return View();
             }
 
-            var craetedUser = await _userService.RegisterUser(model);
+            // save to DB
+
+            await _userService.RegisterUser(model);
             // redirect to Login
 
             return RedirectToAction("Login");
         }
 
         [HttpGet]
-        public ActionResult Login()
+        public IActionResult Login()
         {
             return View();
         }
