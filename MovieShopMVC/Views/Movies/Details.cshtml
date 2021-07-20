@@ -17,14 +17,14 @@
 
 <section class="container" id="section" >
     <div class="row">
-        
+
         <div class="col-lg-4">
-            <img src="@Model.PosterUrl" id="poster" alt="@Model.Title"/>
+            <img src="@Model.PosterUrl" id="poster" alt="@Model.Title" />
         </div>
         <div class="col-lg-5">
             <h4 id="title">@Model.Title</h4>
             <span>@Model.Tagline</span> <br />
-            <span>@Model.RunTime m | @Model.ReleaseDate.ToString().Substring(6, 5)</span> <br />
+            <span>@Model.RunTime m | @Model.ReleaseDate.ToString().Substring(5, 5)</span> <br />
             <span>@Model.Rating</span> <br />
             <br />
             <div>
@@ -32,12 +32,57 @@
             </div>
 
         </div>
-        <div class="col-lg-3">
-            review buttom <br />
-            trailer buttom <br />
-            buy buttom <br />
-            watch movie buttom
+
+        <div class="col-3 justify-content-center pt-md-5">
+            <div class="mx-auto mb-3">
+                <button type="button" class="btn btn-outline-secondary btn-block text-white"><i class="far fa-edit mr-1"></i>REVIEW</button>
+
+            </div>
+            <div class="mx-auto mb-3">
+                <button type="button" class="btn btn-outline-secondary btn-block text-white"><i class="fas fa-play mr-1"></i>TRAILER</button>
+
+            </div>
+            <div class="mx-auto mb-2">
+
+                <button type="button" class="btn btn-light btn-block">BUY 9.90</button>
+            </div>
+            <div class="mx-auto">
+
+                <button type="button" class="btn btn-light btn-block">WATCH MOVIE</button>
+            </div>
         </div>
-            
+
+        <div class="row ">
+            <div class="col-5 pr-5">
+                <h3>MOVIE FACTS</h3>
+                <ul class="list-group">
+                    <li class="list-group-item border-left-0 border-right-0 rounded-0 border-bottom-dark">
+                        <i class="far fa-calendar-alt mr-2"></i>Release Date
+                        <span class="badge badge-secondary">@Model.ReleaseDate.ToString().Substring(0, 10)</span>
+                    </li>
+                    <li class="list-group-item border-left-0 border-right-0 rounded-0 border-dark">
+                        <i class="fas fa-hourglass-half mr-2"></i>Run Time <span class="badge badge-secondary">@Model.RunTime m</span>
+                    </li>
+                    <li class="list-group-item border-left-0 border-right-0 rounded-0 border-dark">
+                        <i class="far fa-money-bill-alt mr-2"></i>Box Office <span class="badge badge-secondary">@Model.Revenue.GetValueOrDefault().ToString("C0")</span>
+                    </li>
+                    <li class="list-group-item border-left-0 border-right-0 rounded-0 border-dark">
+                        <i class="fas fa-dollar-sign mr-2"></i>Budget <span class="badge badge-secondary">@Model.Budget.GetValueOrDefault().ToString("C0")  </span>
+                    </li>
+
+                </ul>
+                <div class="mt-2">
+                    <i class="fab fa-imdb pl-2"></i>
+                    <i class="fas fa-sign-out-alt pl-2"></i>
+                </div>
+            </div>
+            <div class="col pl-5">
+                <h3>CAST</h3>
+                <div>
+                    <partial name="_Casts" model="Model.Casts" />
+                </div>
+            </div>
+        </div>
+
     </div>
 </section>
