@@ -18,9 +18,15 @@ namespace Infrastructure.Repositories
 
         public override async Task<Purchase> GetByIdAsync(int id)
         {
-            var purchase = await _dbContext.Purchases.FirstOrDefaultAsync(p => p.Id == id);
+            var purchase = await _dbContext.Purchases.Include(p => p.Movie).FirstOrDefaultAsync(p => p.Id == id);
 
             return purchase;
+        }
+
+        public async Task<List<Movie>> GetPurchasedMovieByUser(int userId)
+        {
+            var movies = await _dbContext.Purchases.Where(p => p.UserId == userId).Include(p => p.Movie).Select(p => p.Movie).ToListAsync();
+            return movies;
         }
     }
  

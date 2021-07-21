@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using ApplicationCore.ServiceInterfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,20 @@ namespace MovieShopAPI.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private readonly IPurchaseService _purchaseService;
+
+        public UserController(IPurchaseService purchaseService)
+        {
+            _purchaseService = purchaseService;
+        }
+
+        [HttpGet]
+        [Route("purchases")]
+        public async Task<IActionResult> GetUserPurchasedMovies(int userId)
+        {
+
+            var purchases = await _purchaseService.GetAllPurchasedMovie(userId);
+            return Ok(purchases);
+        }
     }
 }

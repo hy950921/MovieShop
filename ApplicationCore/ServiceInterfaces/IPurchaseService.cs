@@ -9,6 +9,6 @@ namespace ApplicationCore.ServiceInterfaces
 {
     public interface IPurchaseService
     {
-        
+        Task<IEnumerable<MovieCardResponseModel>> GetAllPurchasedMovie(int userId);
     }
 }
