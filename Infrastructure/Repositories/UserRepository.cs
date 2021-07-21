@@ -22,5 +22,12 @@ namespace Infrastructure.Repositories
             var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == email);
             return user;
         }
+
+        public override async Task<IEnumerable<User>> ListAllAsync()
+        {
+            var users = await _dbContext.Users.Take(20).ToListAsync();
+            return users;
+        }
+
     }
 }

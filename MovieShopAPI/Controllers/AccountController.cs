@@ -21,24 +21,56 @@ namespace MovieShopAPI.Controllers
         }
 
         [HttpPost]
-        [Route("")]
-        public async Task<IActionResult> Register([FromBody] UserRegisterRequestModel model)
+        public async Task<IActionResult> RegisterUser([FromBody] UserRegisterRequestModel model)
         {
-            if (ModelState.IsValid)
-            {
-                // save to db, register user
-                var createdUser = await _userService.RegisterUser(model);
-                // 201 Created
-                return Ok(createdUser);
-            }
-            // 400
-            return BadRequest("Please check the data you entered");
+            var createdUser = await _userService.RegisterUser(model);
+
+            // send the URL for newly created user also
+            // 5000
+
+            return CreatedAtRoute("GetUser", new { id = createdUser.Id }, createdUser);
+
+            // 201
         }
 
-        //[HttpGet]
-        //[Route("{id: int}")]
+        [HttpGet]
+        [Route("{id:int}", Name = "GetUser")]
+        public async Task<IActionResult> GetUserById(int id)
+        {
+            var user = await _userService.GetUserById(id);
 
+            if (user == null)
+            {
+                return NotFound($"User does not exists for {id}");
+            }
 
+            return Ok(user);
+        }
+
+        [HttpGet]
+        [Route("")]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var users = await _userService.GetAllUsers();
+
+            if (!users.Any())
+            {
+                return NotFound("404 NOT FOUND");
+            }
+            return Ok(users);
+        }
+
+        [HttpPost]
+        [Route("login")]
+        public async Task<IActionResult> Login([FromBody] UserLoginRequestModel model)
+        {
+            var user = await _userService.Login(model.Email, model.Password);
+            if (user == null)
+            {
+                return Unauthorized("Please enter correct user email and password");
+            }
+            return Ok(user);
+        }
 
 
     }

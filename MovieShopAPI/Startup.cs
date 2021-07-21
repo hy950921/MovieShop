@@ -45,6 +45,7 @@ namespace MovieShopAPI
             services.AddScoped<ICurrentUser, CurrentUser>();
             services.AddScoped<ICastService, CastService>();
             services.AddScoped<ICastRepository, CastRepository>();
+            //services.AddScoped(, pu)
 
             services.AddHttpContextAccessor();
 

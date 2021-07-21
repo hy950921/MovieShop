@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using ApplicationCore.Entities;
@@ -130,6 +131,42 @@ namespace Infrastructure.Services
                 DateOfBirth = user.DateOfBirth,
             };
             return userProfileResponse;
+        }
+
+        public async Task<UserLoginResponseModel> GetUserById(int id)
+        {
+            var user = await _userRepository.GetByIdAsync(id);
+
+            var userResponseModel = new UserLoginResponseModel
+            {
+                Id = user.Id,
+                Email = user.Email,
+                FirstName = user.FirstName,
+                LastName = user.LastName,
+                DateOfBirth = user.DateOfBirth
+            };
+            return userResponseModel;
+        }
+
+
+        public async Task<List<UserLoginResponseModel>> GetAllUsers()
+        {
+            var users = await _userRepository.ListAllAsync();
+            var usersList = new List<UserLoginResponseModel>();
+            foreach (var user in users)
+            {
+
+                usersList.Add(new UserLoginResponseModel
+                {
+                    Id = user.Id,
+                    Email = user.Email,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    DateOfBirth = user.DateOfBirth
+                });
+            }
+
+            return usersList;
         }
     }
 }

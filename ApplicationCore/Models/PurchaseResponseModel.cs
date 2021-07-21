@@ -8,13 +8,12 @@ namespace ApplicationCore.Models
 {
     public class PurchaseResponseModel
     {
+        public int Id { get; set; }
         public int UserId { get; set; }
-        public List<PurchasedMovieResponseModel> PurchasedMovies { get; set; }
-
-        public class PurchasedMovieResponseModel : MovieCardResponseModel
-        {
-
-            public DateTime PurchaseDateTime { get; set; }
-        }
+        public int MovieId { get; set; }
+        public decimal TotalPrice { get; set; }
+        public Guid PurchaseNumber { get; set; }
+        public DateTime PurchaseDateTime { get; set; }
+        public List<MovieDetailsResponseModel> Movies { get; set; }
     }
 }

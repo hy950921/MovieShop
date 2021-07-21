@@ -24,6 +24,8 @@ namespace Infrastructure.Data
         public DbSet<Review> Reviews { get; set; }
         public DbSet<User> Users { get; set; }
 
+        public DbSet<Purchase> Purchases { get; set; }
+
         // to use fluent API, we need to override a method onModelCreating
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
