@@ -168,5 +168,10 @@ namespace Infrastructure.Services
 
             return usersList;
         }
+
+        public Task<List<MovieCardResponseModel>> GetFavoriteMoviesByUserAsync(int userId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -22,6 +22,13 @@ namespace MovieShopMVC.Controllers
             return View(casts);
         }
 
+        public async Task<IActionResult> CastDetails(int id)
+        {
+            var cast = await _castService.GetCastDetailsById(id);
+
+            return View(cast);
+        }
+
         
     }
 }

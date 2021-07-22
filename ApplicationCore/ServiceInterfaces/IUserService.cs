@@ -20,5 +20,7 @@ namespace ApplicationCore.ServiceInterfaces
         Task<UserLoginResponseModel> GetUserById(int id);
         Task<List<UserLoginResponseModel>> GetAllUsers();
 
+        Task<List<MovieCardResponseModel>> GetFavoriteMoviesByUserAsync(int userId);
+
     }
 }

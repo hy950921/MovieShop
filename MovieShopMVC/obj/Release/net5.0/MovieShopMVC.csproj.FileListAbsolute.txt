@@ -85,3 +85,4 @@ C:\Users\hy199\source\repos\Antra\MovieShop\MovieShopMVC\obj\Release\net5.0\Razo
 C:\Users\hy199\source\repos\Antra\MovieShop\MovieShopMVC\obj\Release\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
 C:\Users\hy199\source\repos\Antra\MovieShop\MovieShopMVC\obj\Release\net5.0\Razor\Views\Account\Profile.cshtml.g.cs
 C:\Users\hy199\source\repos\Antra\MovieShop\MovieShopMVC\obj\Release\net5.0\Razor\Views\Casts\Index.cshtml.g.cs
+C:\Users\hy199\source\repos\Antra\MovieShop\MovieShopMVC\obj\Release\net5.0\Razor\Views\Casts\CastDetails.cshtml.g.cs

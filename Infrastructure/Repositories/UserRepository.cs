@@ -23,6 +23,11 @@ namespace Infrastructure.Repositories
             return user;
         }
 
+        public Task<List<Movie>> GetUserFavoriteMoviesAsync(int userId)
+        {
+            throw new NotImplementedException();
+        }
+
         public override async Task<IEnumerable<User>> ListAllAsync()
         {
             var users = await _dbContext.Users.Take(20).ToListAsync();
