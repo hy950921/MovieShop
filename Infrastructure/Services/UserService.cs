@@ -11,13 +11,14 @@ using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 
 namespace Infrastructure.Services
 {
-    public class UserService : IUserService
+    public class UserService : IUserService, IReviewService
     {
         private readonly IUserRepository _userRepository;
-
-        public UserService(IUserRepository userRepository)
+        private readonly IReviewRepository _reviewRepository;
+        public UserService(IUserRepository userRepository, IReviewRepository reviewRepository)
         {
             _userRepository = userRepository;
+            _reviewRepository = reviewRepository;
         }
 
         public async Task<UserLoginResponseModel> Login(string email, string password)
@@ -172,6 +173,24 @@ namespace Infrastructure.Services
         public Task<List<MovieCardResponseModel>> GetFavoriteMoviesByUserAsync(int userId)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<List<ReviewResponseModel>> GetReviewsByUserId(int id)
+        {
+            var reviews = await _reviewRepository.GetReviewsByUserIdAsync(id);
+            var reviewsResponseList = new List<ReviewResponseModel>();
+            foreach (var review in reviews)
+            {
+                reviewsResponseList.Add(new ReviewResponseModel
+                {
+                    MovieId = review.MovieId,
+                    UserId = review.UserId,
+                    Rating = review.Rating,
+                    Review = review.ReviewText
+
+                });
+            }
+            return reviewsResponseList;
         }
     }
 }

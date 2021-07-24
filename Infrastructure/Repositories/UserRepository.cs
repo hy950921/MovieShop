@@ -34,5 +34,10 @@ namespace Infrastructure.Repositories
             return users;
         }
 
+        public override async Task<User> GetByIdAsync(int id)
+        {
+            return await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
+        }
+
     }
 }

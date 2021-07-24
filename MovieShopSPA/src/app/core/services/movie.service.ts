@@ -1,4 +1,8 @@
 import { Injectable } from '@angular/core';
+import { MovieCard } from 'src/app/shared/models/movieCard';
+import { HttpClient } from '@angular/common/http';
+import {map} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,11 +14,14 @@ export class MovieService {
 // <!-- Alt+Shift+F  Formatting your code  -->
 // <!-- Alt + O swtching between component and Template (View) -->
 
-  constructor() { 
+  constructor(private http: HttpClient) { }
       // make an ajax HTTP call to API
-    //   getTopRevenueMovies() {
 
-    //   }
-      
+  getTopRevenueMovies() : Observable<MovieCard[]> {
+
+      return this.http.get('https://localhost:44316/api/movies/toprevenue')
+      .pipe(map(resp => resp as MovieCard[]));
   }
+      
+  
 }
