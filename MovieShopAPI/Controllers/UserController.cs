@@ -1,4 +1,5 @@
-﻿using ApplicationCore.ServiceInterfaces;
+﻿using ApplicationCore.Models;
+using ApplicationCore.ServiceInterfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -14,11 +15,12 @@ namespace MovieShopAPI.Controllers
     {
         private readonly IPurchaseService _purchaseService;
         private readonly IUserService _userService;
-
-        public UserController(IPurchaseService purchaseService, IUserService userService)
+        private readonly IReviewService _reviewService;
+        public UserController(IPurchaseService purchaseService, IUserService userService, IReviewService reviewService)
         {
             _purchaseService = purchaseService;
             _userService = userService;
+            _reviewService = reviewService;
         }
 
         [HttpGet]
@@ -53,6 +55,23 @@ namespace MovieShopAPI.Controllers
                 return NotFound("404 NOT FOUND");
             }
             return Ok(reviews);
+        }
+
+        [HttpPost]
+        [Route("Review")]
+        public async Task<IActionResult> PostReview([FromBody] ReviewRequestModel model)
+        {
+            var review = await _reviewService.WriteReview(model);
+
+            return Ok(review);
+        }
+
+        [HttpPut]
+        [Route("Review")]
+        public async Task<IActionResult> UpdateReview([FromBody] ReviewRequestModel model)
+        {
+            var review = await _reviewService.UpdateReview(model);
+            return Ok(review);
         }
     }
 }

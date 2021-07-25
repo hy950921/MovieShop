@@ -192,5 +192,15 @@ namespace Infrastructure.Services
             }
             return reviewsResponseList;
         }
+
+        public Task<Review> WriteReview(ReviewRequestModel model)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Review> UpdateReview(ReviewRequestModel model)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
