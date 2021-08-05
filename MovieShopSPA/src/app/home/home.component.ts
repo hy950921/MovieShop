@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
     // certain events
   ngOnInit(): void {
       console.log("inside home component");
-      this.movieService.getTopRevenueMovies().subscribe(m => {this.movies = m; console.table(m);});
+      this.movieService.getTopRevenueMovies().subscribe(m => {this.movies = m; console.table(this.movies);});
   }
 
 }

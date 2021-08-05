@@ -8,7 +8,8 @@ import { MovieCard } from '../../models/movieCard';
 })
 export class MovieCardComponent implements OnInit {
 
-  @Input() moviecard! : MovieCard;
+  @Input() 
+  moviecard! : MovieCard;
   constructor() { }
 
   ngOnInit(): void {
