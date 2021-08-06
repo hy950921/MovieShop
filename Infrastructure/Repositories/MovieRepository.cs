@@ -49,5 +49,20 @@ namespace Infrastructure.Repositories
         {
             return await _dbContext.Movies.Take(20).ToListAsync();
         }
+
+        public async Task<List<Movie>> GetHighest30RatedMovies()
+        {
+            var movies = await _dbContext.Reviews.Include(r => r.Movie)
+                .GroupBy(r => new { r.Movie.Id, r.Movie.PosterUrl, r.Movie.Title })
+                .OrderByDescending(g => g.Average(r => r.Rating))
+                .Select(m => new Movie
+                {
+                    Id = m.Key.Id,
+                    PosterUrl = m.Key.PosterUrl,
+                    Title = m.Key.Title,
+                    Rating = m.Average(r => r.Rating)
+                }).Take(10).ToListAsync();
+            return movies;
+        }
     }
 }

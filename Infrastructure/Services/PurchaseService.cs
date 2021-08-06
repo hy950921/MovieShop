@@ -1,4 +1,5 @@
-﻿using ApplicationCore.Models;
+﻿using ApplicationCore.Entities;
+using ApplicationCore.Models;
 using ApplicationCore.RepositoryInterfaces;
 using ApplicationCore.ServiceInterfaces;
 using System;
@@ -24,6 +25,13 @@ namespace Infrastructure.Services
             { Id = m.Id, Title = m.Title, PosterUrl = m.PosterUrl, Budget = m.Budget.GetValueOrDefault() });
             return response;
 
+        }
+
+        public async Task<IEnumerable<Purchase>> GetAllPurchases()
+        {
+            var purchases = await _purchaseRepository.ListAllAsync();
+
+            return purchases;
         }
     }
 }
