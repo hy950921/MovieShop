@@ -13,20 +13,34 @@ export class MovieDetailsComponent implements OnInit {
     movie!: Movie;
     movieId!: number;
 
-  constructor(private route: ActivatedRoute, private movieService: MovieService) { }
+//   constructor(private route: ActivatedRoute, private movieService: MovieService) { }
 
-    //get the movie id from the URL and call the MovieService
-  ngOnInit(): void {
-      this.route.paramMap.subscribe(
-          p=> {
-            this.movieId = Number(p.get('id'));
-            this.movieService.getMovieDetails(this.movieId).subscribe(
-                m => {
-                    this.movie = m;
-                }
-            )
-          }
-      )
-  }
+//     //get the movie id from the URL and call the MovieService
+//   ngOnInit(): void {
+//       this.route.paramMap.subscribe(
+//           p=> {
+//             this.movieId = Number(p.get('id'));
+//             this.movieService.getMovieDetails(this.movieId).subscribe(
+//                 m => {
+//                     this.movie = m;
+//                 }
+//             )
+//           }
+//       )
+//   }
+constructor( private router: ActivatedRoute, private movieService : MovieService) { }
+
+    ngOnInit(): void {
+    this.router.paramMap.subscribe(
+            p => {
+            this.movieId = +p.get('id')!;
+            this.movieService.getMovieDetails(this.movieId).subscribe(m=>{
+                this.movie = m;
+        })
+
+        }
+    )
+    }
+
 
 }
