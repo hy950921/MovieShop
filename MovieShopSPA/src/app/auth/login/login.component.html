@@ -1,3 +1,31 @@
-<h2>
-    Login User
-</h2>>
+<!-- authenticationService => api/login POST => return the JWT 
+    store in tlocal storage =>
+    localhost:4200/user/purhcase => Guards => token and only call the API if token is valid
+    then API will also validate the token
+-->
+
+<!-- two ways you can use to work with forms
+1. template forms driven approach => used for simple forms where there is not much validation logics
+2. reactive forms approach => needed for more complex forms, with lots of validations => 
+-->
+
+<!-- 
+    1. ngSubmit binding with event
+    2. make sure the name=""
+ -->
+
+<div class="container">
+    <form (ngSubmit) = "login()">
+        <div class="form-group">
+          <label for="emial">Email address</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" >
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password" >
+        </div>
+        
+        <input type="submit" class="btn btn-primary" value="submit" >
+    </form>
+</div>
+

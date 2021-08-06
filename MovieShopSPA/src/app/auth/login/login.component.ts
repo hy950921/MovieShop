@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Login } from 'src/app/shared/models/login';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+// two way binding
+// one way binding
 
-  ngOnInit(): void {
-  }
+    userLogin: Login = {
+        email: '', password: ''
+    };
+    constructor() { }
+
+    ngOnInit(): void {
+    }
+    
+    login() {
+        console.log('button is clicked');
+    }
 
 }
