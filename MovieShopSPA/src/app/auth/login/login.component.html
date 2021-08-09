@@ -17,6 +17,12 @@
 
 <p>login works!</p>
 
+<div *ngIf="invalidLogin" class="alert alert-danger">
+    <!-- display error message -->
+    Invalid Login, Please enter correct un/pw
+</div>
+
+
 <div class="container">
     <form (ngSubmit)="login()">
         <div class="form-group">
