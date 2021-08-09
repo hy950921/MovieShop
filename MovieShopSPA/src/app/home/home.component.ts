@@ -17,5 +17,8 @@ export class HomeComponent implements OnInit {
       console.log("inside home component");
       this.movieService.getTopRevenueMovies().subscribe(m => {this.movies = m; console.table(this.movies);});
   }
+  login() {
+    console.log('button clicked');
+  }
 
 }

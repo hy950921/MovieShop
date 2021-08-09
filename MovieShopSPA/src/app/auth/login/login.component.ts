@@ -8,19 +8,24 @@ import { Login } from 'src/app/shared/models/login';
 })
 export class LoginComponent implements OnInit {
 
-// two way binding
-// one way binding
-
-    userLogin: Login = {
-        email: '', password: ''
-    };
-    constructor() { }
-
-    ngOnInit(): void {
+    userLogin : Login = {
+        email: '',
+        password: ''
     }
-    
-    login() {
-        console.log('button is clicked');
-    }
+
+  constructor() { }
+
+  ngOnInit(): void {
+    console.log(this.userLogin);
+  }
+
+  login() {
+    console.log(this.userLogin);
+    console.log('button clicked');
+  }
+
+
+  // simply observing two way binding, for testing
+  get twoWayBindingInfo() {return JSON.stringify(this.userLogin)}
 
 }

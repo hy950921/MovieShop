@@ -28,18 +28,19 @@ export class MovieDetailsComponent implements OnInit {
 //           }
 //       )
 //   }
-constructor( private router: ActivatedRoute, private movieService : MovieService) { }
+constructor( private route: ActivatedRoute, private movieService : MovieService) { }
 
     ngOnInit(): void {
-    this.router.paramMap.subscribe(
-            p => {
-            this.movieId = +p.get('id')!;
-            this.movieService.getMovieDetails(this.movieId).subscribe(m=>{
-                this.movie = m;
-        })
+        this.route.paramMap.subscribe(
+                p => {
+                    this.movieId = +p.get('id')!;
 
-        }
-    )
+                    //call movie service
+                    this.movieService.getMovieDetails(this.movieId).subscribe(m=>{
+                        this.movie = m;
+                    })
+                }
+        )
     }
 
 

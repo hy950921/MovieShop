@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import {HttpClientModule} from '@angular/common/http';
 
+import { CommonModule }       from '@angular/common';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -27,6 +28,7 @@ import { PurchasedMoviesComponent } from './user/purchased-movies/purchased-movi
 import { FavoritedMoviesComponent } from './user/favorited-movies/favorited-movies.component';
 import { ReviewedMoviesComponent } from './user/reviewed-movies/reviewed-movies.component';
 import { ProfileComponent } from './user/profile/profile.component';
+import { LoginComponent } from './auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -46,14 +48,16 @@ import { ProfileComponent } from './user/profile/profile.component';
     PurchasedMoviesComponent,
     FavoritedMoviesComponent,
     ReviewedMoviesComponent,
-    ProfileComponent
+    ProfileComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
     
   ],
   providers: [],
